@@ -29,3 +29,8 @@ module.exports = function(server) {
 
 };
 
+function update() {
+  io.volatile.emit('players list', Object.values(players));
+}
+
+setInterval(update, 1000/60);
