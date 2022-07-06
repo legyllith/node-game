@@ -27,10 +27,11 @@ module.exports = function(server) {
   socket.on('move down',  function() { players[socket.id].y += players[socket.id].speed; });
   });
 
-};
-
 function update() {
   io.volatile.emit('players list', Object.values(players));
 }
 
 setInterval(update, 1000/60);
+
+};
+
