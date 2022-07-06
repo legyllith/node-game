@@ -19,9 +19,6 @@ function drawPlayers() {
     ctx.fill();
   });
 }
-socket.on('players list', function(list) {
-  players = list;
-});
 
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height); // 1. Effacer la zone de dessin,

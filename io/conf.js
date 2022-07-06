@@ -22,6 +22,10 @@ module.exports = function(server) {
       delete players[socket.id];
     });
   });
+
+    socket.on('players list', function(list) {
+     players = list;
+    });
   socket.on('move left',  function() { players[socket.id].x -= players[socket.id].speed; });
   socket.on('move up',    function() { players[socket.id].y -= players[socket.id].speed; });
   socket.on('move right', function() { players[socket.id].x += players[socket.id].speed; });
