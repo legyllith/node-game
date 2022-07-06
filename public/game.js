@@ -1,18 +1,27 @@
-const player = {
-  x: 0,
-  y: 0,
-  size: 20,
-  speed: 5
-};
+const socket = io();
+
+// const player = {
+//   x: 0,
+//   y: 0,
+//   size: 20,
+//   speed: 5
+// };
+
+let players = [];
 
 const ctx = canvas.getContext('2d');
 
 function drawPlayers() {
-  const {x, y, size} = player;
-  ctx.beginPath();
-  ctx.rect(x, y, size, size);
-  ctx.fill();
+  players.forEach(function({x, y, size, c}) {
+    ctx.beginPath();
+    ctx.rect(x, y, size, size);
+    ctx.fillStyle = c;
+    ctx.fill();
+  });
 }
+socket.on('players list', function(list) {
+  players = list;
+});
 
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height); // 1. Effacer la zone de dessin,
@@ -33,10 +42,10 @@ window.onkeyup = function(e) {
 };
 
 function movePlayer() {
-  if (keyboard['ArrowLeft']) player.x -= player.speed; // left
-  if (keyboard['ArrowUp']) player.y -= player.speed; // up
-  if (keyboard['ArrowRight']) player.x += player.speed; // right
-  if (keyboard['ArrowDown']) player.y += player.speed; // down
+  if (keyboard['ArrowLeft']) socket.emit('move left');
+  if (keyboard['ArrowUp']) socket.emit('move up');
+  if (keyboard['ArrowRight']) socket.emit('move right');
+  if (keyboard['ArrowDown']) socket.emit('move down');
 }
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
