@@ -14,16 +14,12 @@ module.exports = function(server) {
       y: 0,
       size: 20,
       speed: 5,
-      c: "#"+((1<<24)*Math.random()|0).toString(16)
+      c: "#"+((1<<24)*Math.random()|0).toString(16) //creer un couleur random
     };
     
     // delete disconnected player
     socket.on('disconnect', function() {
       delete players[socket.id];
-    });
-
-    socket.on('players list', function(list) {
-     players = list;
     });
   socket.on('move left',  function() { players[socket.id].x -= players[socket.id].speed; });
   socket.on('move up',    function() { players[socket.id].y -= players[socket.id].speed; });

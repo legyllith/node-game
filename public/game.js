@@ -9,6 +9,10 @@ const socket = io();
 
 let players = [];
 
+socket.on('players list', function(list) {
+  players = list;
+});
+
 const ctx = canvas.getContext('2d');
 
 function drawPlayers() {
