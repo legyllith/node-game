@@ -21,7 +21,6 @@ module.exports = function(server) {
     socket.on('disconnect', function() {
       delete players[socket.id];
     });
-  });
 
     socket.on('players list', function(list) {
      players = list;
@@ -30,5 +29,7 @@ module.exports = function(server) {
   socket.on('move up',    function() { players[socket.id].y -= players[socket.id].speed; });
   socket.on('move right', function() { players[socket.id].x += players[socket.id].speed; });
   socket.on('move down',  function() { players[socket.id].y += players[socket.id].speed; });
+  });
+
 };
 
