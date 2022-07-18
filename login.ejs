@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-scope" content="profile email">
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://accounts.google.com/gsi/client?onload=init" async defer></script>
    <title>Google-Sign-In</title>
 </head>
 <body>
@@ -16,12 +16,25 @@
     <div class="g_id_signin" data-type="standard"></div>
     <a href="#" onclick="signOut();">Sign out</a>
     <script>
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	function init() {
+ 	 gapi.load('auth2', function() {
+		/* Ready. Make a call to gapi.auth2.init or some other API */
+            	/*var profile = googleUser.getBasicProfile();
+            	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+           	console.log('Name: ' + profile.getName());
+            	console.log('Image URL: ' + profile.getImageUrl());
+            	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  		});*/
+	}
+        function onSignIn(response) {
+     		const responsePayload = decodeJwtResponse(response.credential);
+
+    		console.log("ID: " + responsePayload.sub);
+    		console.log('Full Name: ' + responsePayload.name);
+    		console.log('Given Name: ' + responsePayload.given_name);
+    		console.log('Family Name: ' + responsePayload.family_name);
+    		console.log("Image URL: " + responsePayload.picture);
+    		console.log("Email: " + responsePayload.email);
         }
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
