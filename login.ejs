@@ -14,6 +14,7 @@
          data-callback="handleCredentialResponse">
     </div>
     <div class="g_id_signin" data-type="standard"></div>
+    <div id="div-element"></div>
     <a href="#" onclick="signOut();">Sign out (non fonctionnel)</a>
     <script>
         function handleCredentialResponse(response) {
@@ -25,6 +26,7 @@
     		console.log('Family Name: ' + responsePayload.family_name);
     		console.log("Image URL: " + responsePayload.picture);
     		console.log("Email: " + responsePayload.email);
+   		document.getElementById("div-element").innerHTML = 'Hello ' + responsePayload.given_name;
         }
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
