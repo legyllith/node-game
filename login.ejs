@@ -4,13 +4,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="757717539808-odsvdj43evlhobl8lega0vcv39md4762.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
    <title>Google-Sign-In</title>
 </head>
 <body>
     <h1>LOGIN</h1>
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <div id="g_id_onload"
+         data-client_id="757717539808-odsvdj43evlhobl8lega0vcv39md4762.apps.googleusercontent.com"
+         data-callback="handleCredentialResponse">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
     <a href="#" onclick="signOut();">Sign out</a>
     <script>
         function onSignIn(googleUser) {

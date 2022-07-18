@@ -23,13 +23,6 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Get hostname and store in Express.
- */
-
-//var hostname = 'legyllithcompany.fr';
-//app.set('hostname', hostname);
-
-/**
  * Create HTTP server.
  */
 
@@ -110,9 +103,3 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-//add dns
-const dns = require('dns');
-
-dns.lookup('legyllithcompany.fr', (err, address, family) => {
-  console.log('address: %j family: IPv%s', address, family);
-});
