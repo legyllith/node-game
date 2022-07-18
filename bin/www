@@ -8,6 +8,7 @@ var app = require('../app');
 var io = require('../io/conf');
 var debug = require('debug')('node-chat:server');
 var https = require('https');
+const fs = require('fs');
 
 var options = {
   key: fs.readFileSync('key.pem'),
