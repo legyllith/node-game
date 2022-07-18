@@ -9,6 +9,7 @@ var io = require('../io/conf');
 var debug = require('debug')('node-chat:server');
 var https = require('https');
 var fs = require('fs');
+var path = require('path');
 
 var options = {
   key: fs.readFileSync(path.resolve('../bin/key.pem')),
