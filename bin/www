@@ -12,8 +12,8 @@ var fs = require('fs');
 var path = require('path');
 
 var options = {
-  key: fs.readFileSync(path.resolve('../bin/key.pem')),
-  cert: fs.readFileSync(path.resolve('../bin/cert.pem'))
+  key: fs.readFileSync(path.resolve('../node-game/bin/key.pem')),
+  cert: fs.readFileSync(path.resolve('../node-game/bin/cert.pem'))
 };
 
 /**
