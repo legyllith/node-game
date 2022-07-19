@@ -37,7 +37,7 @@ setInterval(update, 1000/60);
 
 const mariadb = require('mariadb');
 const pool = mariadb.createPool({
-     host: 'localhost', 
+     host: '141.94.23.39/', 
      user:'root', 
      password: 'ludiMON1996',
      connectionLimit: 5

@@ -26,6 +26,7 @@ function drawPlayers() {
 
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height); // 1. Effacer la zone de dessin,
+  movePlayer(); 				    // eventuel deplacement
   drawPlayers();                                    // 2.Dessiner les joueurs,
   requestAnimationFrame(update);                    // 3.Aller à 1.
 }
@@ -47,10 +48,4 @@ function movePlayer() {
   if (keyboard['ArrowUp']) socket.emit('move up');
   if (keyboard['ArrowRight']) socket.emit('move right');
   if (keyboard['ArrowDown']) socket.emit('move down');
-}
-function update() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  movePlayer(); // *
-  drawPlayers();
-  requestAnimationFrame(update);
 }
