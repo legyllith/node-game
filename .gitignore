@@ -1,2 +1,4 @@
 /bin/cert.pem
 /bin/key.pem
+# Visual Studio cache directory
+.vs/

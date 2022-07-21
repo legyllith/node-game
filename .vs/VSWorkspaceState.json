@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin",
+    "\\io",
+    "\\public",
+    "\\unityServer"
   ],
+  "SelectedNode": "\\unityServer\\server.js",
   "PreviewInSolutionExplorer": false
 }

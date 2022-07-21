@@ -9,6 +9,11 @@ app.get("/user/:id", (req, res) => {
 		"username": "quill" + req.params["id"],
 		"wins": 18,
 		"lossing": 1000,
+		"someArray": [
+			{name: "foo", value: 2.5},
+			{name: "bar", value: 7.1}
+		]
+			
 	};
 
 	res.send(dummyData.username);
