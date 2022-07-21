@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
-    "unitstart": "nodemon ./unityServer/server.js",
+    "unitstart": "node ./unityServer/server.js"
   },
   "dependencies": {
     "debug": "~2.6.9",
