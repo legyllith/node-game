@@ -11,7 +11,7 @@ app.get("/user/:id", (req, res) => {
 		"lossing": 1000,
 	};
 
-	red.send(dummyData.username);
+	res.send(dummyData.username);
 });
 
 app.listen(3000, () => {
