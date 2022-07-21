@@ -16,7 +16,7 @@ app.get("/user/:id", (req, res) => {
 			
 	};
 
-	res.send(dummyData.username);
+	res.send(dummyData);
 });
 
 app.listen(3000, () => {
