@@ -48,6 +48,7 @@ io.on('connection', (socket) => {
     });
     socket.on('disconnect', () => {
         console.log('user disconnected');
+      	delete players[socket.id];
     });
 });
 http.listen(3000, () => {
