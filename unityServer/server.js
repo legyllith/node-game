@@ -1,28 +1,28 @@
-var express = require("express");
+//var express = require("express");
 
-var app = express();
+//var app = express();
 
-app.get("/user/:id", (req, res) => {
+//app.get("/user/:id", (req, res) => {
 
-	var dummyData = {
-		"userid": req.params["id"],
-		"username": "quill" + req.params["id"],
-		"wins": 18,
-		"lossing": 1000,
-		"someArray": [
-			{name: "foo", value: 2.5},
-			{name: "bar", value: 7.1}
-		]
+//	var dummyData = {
+//		"userid": req.params["id"],
+//		"username": "quill" + req.params["id"],
+//		"wins": 18,
+//		"lossing": 1000,
+//		"someArray": [
+//			{name: "foo", value: 2.5},
+//			{name: "bar", value: 7.1}
+//		]
 			
-	};
+//	};
 
-	res.send(dummyData);
-});
+//	res.send(dummyData);
+//});
 
 //app.listen(3000, () => {
 //	console.log("Server has started");
 //});
-
+const app = require('express')();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 app.get('/', (req, res) => {
