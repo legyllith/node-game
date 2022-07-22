@@ -53,9 +53,9 @@ io.on('connection', (socket) => {
     });
 
     socket.on('move left', function () { players[socket.id].x += 0.1; });
-    socket.on('move up', function () { players[socket.id].y -= 0.1; });
+    socket.on('move up', function () { players[socket.id].y += 0.1; });
     socket.on('move right', function () { players[socket.id].x -= 0.1; });
-    socket.on('move down', function () { players[socket.id].y += 0.1; });
+    socket.on('move down', function () { players[socket.id].y -= 0.1; });
 });
 http.listen(3000, () => {
     console.log('Connected at 3000');
