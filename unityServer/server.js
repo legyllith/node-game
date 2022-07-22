@@ -50,7 +50,17 @@ io.on('connection', (socket) => {
         console.log('user disconnected');
       	delete players[socket.id];
     });
+
+  socket.on('move left',  function() { players[socket.id].x -= 0.1; });
+  socket.on('move up',    function() { players[socket.id].y -= 0.1; });
+  socket.on('move right', function() { players[socket.id].x += 0.1; });
+  socket.on('move down',  function() { players[socket.id].y += 0.1; });
 });
 http.listen(3000, () => {
     console.log('Connected at 3000');
 });
+
+function update() {
+  io.volatile.emit('players list', Object.values(players));
+}
+setInterval(update, 1000/60);
