@@ -62,6 +62,6 @@ http.listen(3000, () => {
 });
 
 function update() {
-  io.volatile.emit('new player', Object.values(players));
+  io.volatile.emit('position player', Object.values(players));
 }
 setInterval(update, 1000/60);
