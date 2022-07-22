@@ -37,7 +37,7 @@ io.on('connection', (socket) => {
     console.log('a user connected');
     // register new player
     players[socket.id] = {
-      x: 0,
+      x: 5*Math.random(),
       y: 5*Math.random(),
     };
     io.emit('new player', players);
