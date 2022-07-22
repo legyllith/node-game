@@ -48,8 +48,11 @@ io.on('connection', (socket) => {
         io.emit('chat message', msg);
     });
     socket.on('disconnect', () => {
+	var playerdeco = {
+        "id": socket.id
+        };
         console.log('user disconnected');
-        io.emit('deconnected player', Object.value(socket.id));
+        io.emit('deconnected player', playerdeco);
       	delete players[socket.id];
     });
 
