@@ -38,10 +38,7 @@ io.on('connection', (socket) => {
     // register new player
     players[socket.id] = {
       x: 0,
-      y: 0,
-      size: 20,
-      speed: 5,
-      c: "#"+((1<<24)*Math.random()|0).toString(16) //creer un couleur random
+      y: 5*Math.random(),
     };
     io.emit('new player', players);
     
