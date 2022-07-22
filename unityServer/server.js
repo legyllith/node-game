@@ -52,10 +52,10 @@ io.on('connection', (socket) => {
       	delete players[socket.id];
     });
 
-    socket.on('move left', function () { console.log('1');players[socket.id].x -= 0.1; });
-    socket.on('move up', function () { console.log('2');players[socket.id].y -= 0.1; });
-    socket.on('move right', function () { console.log('3');players[socket.id].x += 0.1; });
-    socket.on('move down', function () { console.log('4');players[socket.id].y += 0.1; });
+    socket.on('move left', function () { players[socket.id].x += 0.1; });
+    socket.on('move up', function () { players[socket.id].y -= 0.1; });
+    socket.on('move right', function () { players[socket.id].x -= 0.1; });
+    socket.on('move down', function () { players[socket.id].y += 0.1; });
 });
 http.listen(3000, () => {
     console.log('Connected at 3000');
