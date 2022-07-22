@@ -29,8 +29,23 @@ const io = require('socket.io')(http);
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
+
+// game state (players list)
+const players = {};
+
 io.on('connection', (socket) => {
     console.log('a user connected');
+    // register new player
+    players[socket.id] = {
+      x: 0,
+      y: 0,
+      size: 20,
+      speed: 5,
+      c: "#"+((1<<24)*Math.random()|0).toString(16) //creer un couleur random
+    };
+    io.emit('new player', players);
+    
+
     socket.on('chat message', (msg) => {
         io.emit('chat message', msg);
     });
