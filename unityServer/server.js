@@ -60,7 +60,9 @@ io.on('connection', (socket) => {
     socket.on('move up', function () { players[socket.id].y += 0.005; });
     socket.on('move right', function () { players[socket.id].x -= 0.005; });
     socket.on('move down', function () { players[socket.id].y -= 0.005; });
-});
+    //il faudrais faire les movements differement pour que le jeu les integre mieux si on veut du mouvement normalisé
+    // faire une fonction qui génere la position du joueurs en fonction des X et Y recut
+    // il faudra comparé la longeur de X et celle de Y afin d obtenir l'angle pour la direction
 http.listen(3000, () => {
     console.log('Connected at 3000');
 });
